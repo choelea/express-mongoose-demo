@@ -1,0 +1,28 @@
+{{#>adminLayout}}
+  {{#*inline "adminHeader"}}
+    {{>adminHeader}}
+  {{/inline}}
+  {{#*inline "allContent"}}
+    <div id="all">
+      <!-- *** CONTENT ***
+      _________________________________________________________
+      _________________________________________________________
+      -->
+      <div id="advantages">
+        {{>adminApplyForm_content}}
+      </div>
+    </div>
+    <!-- /#all -->
+  {{/inline}}
+  {{#*inline "adminJsRef"}}
+    {{>adminJsRef}}
+    <script>
+    window.okchem_apply_form_group_buying_code='{{{json groupBuyingCode}}}'
+    window.okchem_apply_form_group_buying_info = {{{json groupBuyingInfo.outGroupBuyingInfoList}}}
+    window.okchem_apply_form_country = {{{json countries}}}
+    window.okchem_apply_form_country_value = {{{json countryDatas}}}
+    </script>
+    <script src="js/adminApplyFormContent.js"></script>
+  {{/inline}}
+{{/adminLayout}}
+

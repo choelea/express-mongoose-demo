@@ -1,0 +1,28 @@
+{
+  "navbar": {
+    "hotProduct": "Products",
+    "hi": "Hi",
+    "myProducts": "My Products",
+    "mySuppliers": "My Suppliers",
+    "myInquires": "My Inquiries",
+    "myMessages": "My Messages",
+    "me": "Buyer Center",
+    "app": "App",
+    "logout": "Logout",
+    "scanQR": "Scan QR code to get the APP",
+    "signinup": "Register/Login",
+    "manageQuotation": "Manage Quotations (Excel)",
+    "manageProductQuotation": "Manage Product Quotations",
+    "finance": "Finance",
+    "changePwd": "Change Password",
+    "messages": "Messages",
+    "inquiries": "Inquiries",
+    "bussiness": "Bussiness",
+    "myGroupBuying":"My Groupbuying",
+    "myAccumulatePoints":"My Accumulate Points",
+    "account":"Account",
+    "editProfile":"Edit Profile",
+    "register":"Register",
+    "login":"Login"
+  }
+}

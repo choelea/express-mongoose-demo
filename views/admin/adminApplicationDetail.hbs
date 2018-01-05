@@ -1,0 +1,22 @@
+{{#>adminLayout}}
+  {{#*inline "adminHeader"}}
+    {{>adminHeader}}
+  {{/inline}}
+  {{#*inline "allContent"}}
+    <div id="all">
+      <!-- *** CONTENT ***
+      _________________________________________________________
+      _________________________________________________________
+      -->
+      <div id="content">
+        {{>adminApplicationDetail_content}}
+      </div>
+    </div>
+    <!-- /#all -->
+  {{/inline}}
+  {{#*inline "adminJsRef"}}
+    {{>adminJsRef}}
+    <script src="js/adminApplicationList.js"></script>
+  {{/inline}}
+{{/adminLayout}}
+

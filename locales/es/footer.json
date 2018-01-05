@@ -1,0 +1,21 @@
+{
+  "footer": {
+    "okchemPages": "Related",
+    "chembnb":"ChemBnB",
+    "instantQuote":"InstantQuote",
+    "okchemMall":"I.Q. MiniOffice",
+    "foodAdditives":"I.Q. Credit Loan",
+    "orker":"OKCHEM Mall",
+    "contactUs":"Where to find us",
+    "moreContacts":"Go to contact us",
+    "followUs":"Follow Us",
+    "applyToBeARegisteredSupplier":"Apply to be a verified supplier",
+    "email":"Email",
+    "submit":"Submit",
+    "valMsgEmailValidate":"Please enter a valid email",
+    "verifySupplierMsg1": "Thanks for applying to be a verified supplier on InstantQuote.",
+    "verifySupplierMsg2": "Your application has been received, and we will contact you as soon as possible.",
+    "verifySupplierFailed": "Sorry, your submit operation failed. Please try again"
+
+  }
+}

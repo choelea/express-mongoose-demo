@@ -1,0 +1,71 @@
+{{#>coreLayout}}
+  {{#*inline "allContent"}}
+    <div id="all">
+      <div id="content">
+        <div class="container">
+          <h3 class="text-center">{{t "resetPwd.subTitle"}}</h3>
+          <div class="row">
+            <div class="col-sm-8 col-sm-offset-2">
+              <div class="box">
+                <form action="" id="resetPwdlForm"  novalidate="novalidate" method="post">
+                  <input type="hidden" name="token" id="token" value='{{token}}' />
+                  <div class="form-group">
+                    <label for="newpwd"><span style="color: #ff6800;">*</span>{{t "resetPwd.newpwd"}}</label>
+                    <input type="password" class="form-control" name="newpwd" required minlength="6" maxlength="12"
+                           id="newpwd" placeholder="{{t "resetPwd.newpwd"}}">
+                  </div>
+                  <div class="form-group">
+                    <label for="newpwdConfirm"><span style="color: #ff6800;">*</span>{{t "resetPwd.newpwdConfirm"}}</label>
+                    <input type="password" class="form-control" name="newpwdConfirm" required minlength="6"
+                           maxlength="12"
+                           id="newpwdConfirm" placeholder="{{t "resetPwd.newpwdConfirm"}}">
+                  </div>
+                  <p class="text-center">
+                    <button class="btn btn-primary" id="btnResetPwdAjax"><i class="fa fa-sign-in"></i>{{t "resetPwd.submit"}}</button>
+                  </p>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {{>footer}}
+    {{>copyright}}
+  {{/inline}}
+  {{#*inline "jsRef"}}
+    {{>jsRef}}
+    <script>
+      (function ($) {
+        $('#resetPwdlForm').submit(function (e) {
+          e.preventDefault()
+        })
+        $('#resetPwdlForm').validate({
+          rules: {
+            newpwdConfirm: {
+              equalTo: "#newpwd",
+            },
+          },
+          submitHandler: function (form) {
+            $.ajax({
+              url: '/group-buying/reset-password',
+              type: 'POST',
+              contentType: 'application/json',
+              data: JSON.stringify($(form).serializeFormJSON()),
+              success: function (json) {
+                if (json.success) {
+                  location.href='/group-buying/login'
+                } else {
+                  okchem.showError($.i18nMs.resetPwd[json.msgCode] || $.i18nMs.resetPwd.defaultErr)
+                }
+              },
+              error: function () {
+                okchem.showError($.i18nMs.resetPwd.defaultErr)
+              },
+            })
+          },
+        })
+      })($)
+    </script>
+  {{/inline}}
+{{/coreLayout}}

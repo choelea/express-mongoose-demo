@@ -1,0 +1,12 @@
+{
+  "forgotPwd": {
+    "subTitle": "Password Assistance",
+    "email": "Email",
+    "continue": "Continue",
+    "tip": "Enter the email address you have registered in ChemBnB, then click 'Continue'. We will send a mail of password retrieval to your mailbox, please kindly check it.",
+    "successSubTitle": "Submit successful!",
+    "successMes": "The email of password retrieval has been sent to your email box,",
+    "successMes2": "please check your email box to complete your password retrieval within 1 hour. ",
+    "goToHome": "Back To Homepage"
+  }
+}

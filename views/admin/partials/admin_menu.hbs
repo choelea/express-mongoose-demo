@@ -1,0 +1,39 @@
+<div class="panel panel-default sidebar-menu">
+  <div class="panel-heading">
+    <h3 class="panel-title">{{t "adminMenu.groupbuying"}}</h3>
+  </div>
+  <div class="panel-body">
+    <ul class="nav nav-pills nav-stacked">
+      <li
+        {{#ifEquals originalUrl '/admin/application-list'}}
+          class="active"
+        {{/ifEquals}}
+      >
+        <a href="/admin/application-list">
+          <i class="fa fa-list"></i>
+          {{t "adminMenu.applicationList"}}
+        </a>
+      </li>
+      <li
+        {{#ifEquals originalUrl '/admin/referring-list'}}
+        class="active"
+        {{/ifEquals}}
+      >
+        <a href="/admin/referring-list">
+          <i class="fa fa-heart"></i>
+          {{t "adminMenu.referToFriend"}}
+        </a>
+      </li>
+      <li
+        {{#ifEquals originalUrl '/admin/contact-us-list'}}
+        class="active"
+        {{/ifEquals}}
+      >
+        <a href="/admin/contact-us-list">
+          <i class="fa fa-user"></i>
+          {{t "adminMenu.contactUs"}}
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>

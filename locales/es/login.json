@@ -1,0 +1,29 @@
+{
+  "login": {
+    "register": "Registro",
+    "notRegister": "¿Aún no Registro?",
+    "email": "Email",
+    "password": "Contraseña",
+    "login": "Login",
+    "alreadyAccount": "¿Ya tiene una cuenta?",
+    "linkedinLogin": "O login con",
+    "credentialsMissMatch": "Invalid email o contraseña",
+    "emailExists": "El email ya existe",
+    "systemerror": "Service is not available",
+    "forgotPwd": "Olvido la contraseña?",
+    "agreement-1": "By clicking Register button, you accept the",
+    "agreement-2": " acuerdo de usuario",
+    "agreement-3": "  y la ",
+    "agreement-4": "política de privacidad",
+    "emailNotVerified": "Este correo electrónico no está verificado, por favor verifique antes de iniciar sesión.",
+    "sendVerificationEmail": " Enviar un correo electrónico de verificación",
+    "reg-confirm-1": "Se ha enviado un correo electrónico de verificación a su buzón de correo",
+    "reg-confirm-2": "Por favor, revise su correo electrónico para completar su registro tan pronto como sea posible.",
+    "codeShown": "Code Shown",
+    "registerSuccessful": "Register successful",
+    "registerSuccessText1": "Congratulations on your successful registration! Sign in account :",
+    "registerSuccessText2": "Please",
+    "registerSuccessText3": "first to start your ChemBnB journey.",
+    "signIn": "sign in"
+  }
+}

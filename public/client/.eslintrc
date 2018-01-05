@@ -1,0 +1,13 @@
+{
+  "env": {
+    "browser": true
+  },
+  "globals": {
+    "$": true,
+    "toastr": true
+  },
+  "extends": "eslint:recommended",
+  "rules": {
+    "semi": ["error", "never"]
+  }
+}

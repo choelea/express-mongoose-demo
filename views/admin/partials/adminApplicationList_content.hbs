@@ -1,0 +1,117 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4 col-md-3">
+      {{>admin_menu}}
+    </div>
+    <div class="col-sm-8 col-md-9" id="customer-orders">
+      <h3>Groupbuying Application List</h3>
+      <div>
+        <div class="pull-right">
+          <a href="/admin/apply-form" class="btn btn-info btn-sm">Insert an Application</a>
+          <button class="btn btn-info btn-sm" id="downList">Download the List</button>
+        </div>
+        <div class="form-inline">
+          <div class="form-group">
+            <label for="">集采活动ID: </label>
+            <select class="form-control" id="selectgbIds">
+              <option value="0">All</option>
+              {{#each groupBuyingList}}
+                <option value={{this.key}}>{{this.value}}</option>
+              {{/each}}
+            </select>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div>
+        <div class="">
+          <table class="table table-hover">
+            <thead>
+            <tr>
+              <th>Date</th>
+              <th>Email</th>
+              <th>Product</th>
+              <th>Quantity</th>
+              <th>Payment Term</th>
+              <th>Status</th>
+              <th>Customer Service Staff</th>
+              <th>Operator</th>
+              <th>Operation</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{#each applicationList}}
+              <tr onclick="location.href='/admin/application/123'">
+                <td>{{this.applyDate}}</td>
+                <td>{{this.email}}</td>
+                <td>{{this.productName}}</td>
+                <td>{{this.quantity}}</td>
+                <td>{{this.paymentTerm}}</td>
+                <td>
+                  {{#ifEquals this.status 'APPLY_ONLINE'}}
+                    <span class="label label-info">Apply Online</span>
+                  {{/ifEquals}}
+                  {{#ifEquals this.status 'CONFIRM_ORDER'}}
+                    <span class="label label-primary">Confirm Order</span>
+                  {{/ifEquals}}
+                  {{#ifEquals this.status 'PUBLISH_PRICE'}}
+                    <span class="label label-warning">Publish Price</span>
+                  {{/ifEquals}}
+                  {{#ifEquals this.status 'SIGN_CONTRACT'}}
+                    <span class="label label-success">Sign Contract</span>
+                  {{/ifEquals}}
+                  {{#ifEquals this.status 'ARRANGE_SHIPMENT'}}
+                    <span class="label label-default">Arrange Shipment</span>
+                  {{/ifEquals}}
+                </td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>
+                  <button class="btn btn-primary btn-sm assign-btn showAssign" id="showAssign" value= {{this.id}} >Assign</button>
+                </td>
+              </tr>
+            {{/each}}
+            </tbody>
+          </table>
+          <!-- pagination -->
+          {{#ifNotEquals  pageCount 0}}
+          <nav class="text-center" aria-label="Page navigation">
+            {{>pagination}}
+          </nav>
+            {{/ifNotEquals}}
+          <!-- / pagination -->
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<div class="modal fade" id="assignModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+          aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Assign</h4>
+      </div>
+      <form id="assignForm">
+      <div class="modal-body">
+
+          <div class="form-group">
+            <label for="customerServiceStaff">Customer Service Staff: </label>
+            <input type="text" class="form-control" id="customerServiceStaff" name="customerServiceStaff" maxlength="100" >
+          </div>
+          <div class="form-group">
+            <label for="operator">Operator: </label>
+            <input type="text" class="form-control" id="operator" name="operator" maxlength="100">
+          </div>
+          <input type="hidden" name = "itemId" id="itemId">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Save changes</button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>

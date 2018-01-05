@@ -1,0 +1,11 @@
+{
+  "buyerCenterMenu": {
+    "buyerCenter": "Buyer Center",
+    "business": "Business",
+    "myGroupbuying": "My Groupbuying",
+    "account": "Account",
+    "editProfile": "Edit Profile",
+    "changePassword": "Change Password",
+    "logOut": "Log Out"
+  }
+}

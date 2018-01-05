@@ -1,0 +1,56 @@
+
+<!-- Modal -->
+<div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">{{t 'detail.contactUs'}}</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div  class="col-sm-10 col-sm-offset-1" style="margin-bottom:15px">
+
+            {{t 'detail.contact'}}: {{simpleIntroduce.ownerName}},
+             {{#if simpleIntroduce.ownerEmail}}
+               {{t 'detail.email'}}: {{simpleIntroduce.ownerEmail}},
+             {{/if}}
+            {{#if simpleIntroduce.ownerTelNo}}
+              {{t 'detail.telNo'}}: {{simpleIntroduce.ownerTelNo}},
+            {{/if}}
+            {{#if simpleIntroduce.ownerCellNo}}
+              {{t 'detail.cellPhone'}}: {{simpleIntroduce.ownerCellNo}}
+            {{/if}}
+
+          </div>
+          <div class="col-sm-10 col-sm-offset-1">
+            <form role="form" class="clearfix" id="contactForm">
+              <div class="form-group">
+                <label for="yourEmail">*{{t 'groupon.yourEmail'}}</label>
+                <input type="text" class="form-control" id="yourEmail2" name="yourEmail" value="{{userEmail}}">
+              </div>
+              <div class="form-group">
+                <label for="yourRequest">*{{t 'detail.yourRequest'}}</label>
+                <textarea class="form-control" id="yourQuestion" name="yourQuestion" id="" cols="30" rows="3"></textarea>
+              </div>
+              <div class="form-group">
+                <label for="codeShown">*{{t 'groupon.codeShow'}}</label>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <input class="form-control" id="codeShown2" name="code" maxlength="4">
+                  </div>
+                  <div class="col-sm-6">
+                    <img src="" alt="" style="height:34px; width:100px">
+                    <i class="fa fa-repeat" id="contactRefreshCaptchaId" style="font-size: 18px; margin-left: 12px; cursor: pointer;"></i>
+                  </div>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-info pull-right">{{t 'groupon.submit'}}</button>
+              <input type="hidden" name="gbid" id="gbid" class="hidden-group-buying-id" value={{simpleIntroduce.groupBuyingId}}>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

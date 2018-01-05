@@ -1,0 +1,28 @@
+{
+  "buyerCenter": {
+    "status": "Status",
+    "referToFriend": "Refer to Friend",
+    "contactUs": "Contact Us",
+    "currentFobPrice": "Current FOB Price",
+    "quantity": "Quantity",
+    "paymentTerm": "Payment Term",
+    "referredBy": "Referred by",
+    "totalAmount": "Total Amount",
+    "appDetails": "Application Details",
+    "buyerInformation": "Buyer Information",
+    "companyName": "Company Name",
+    "country": "Country",
+    "telephone": "Telephone",
+    "history": "History",
+    "myProfile": "My Profile",
+    "email": "Email",
+    "edit": "Edit",
+    "save": "Save",
+    "cancel": "Cancel",
+    "submit": "Submit",
+    "currentPassword": "Current Password",
+    "newPassword": "New Password",
+    "confirmNewPassword": "Confirm New Password",
+    "name": "Name"
+  }
+}

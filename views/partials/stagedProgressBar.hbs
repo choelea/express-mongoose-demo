@@ -1,0 +1,80 @@
+<div class="container" style="width: 100%">
+  <!-- stage title -->
+  {{#if showText}}
+    <div class="row">
+      {{#each stage_title_list}}
+        <div class="{{stageColStyle ../stageCount}} ok-stage-title">
+          {{this}}
+        </div>
+      {{/each}}
+    </div>
+  {{/if}}
+  <!-- staged progress bar -->
+  <div class="row">
+    {{#each stage_title_list}}
+      {{#isFirstElementOfArray @index}}
+        <!-- first bar -->
+        <div class="{{stageColStyle ../stageCount}} ok-stage-bar-container">
+          <div class="ok-stage-bar ok-stage-bar-head">
+            <div style="{{stagePercentageColStyle @index ../currentStage ../stageCount ../percentage}}"
+                 class="ok-stage-bar-progress ok-stage-bar-head"
+                 {{{currentStagePopoverAttr @index ../currentStage ../currentText ../showText}}}
+            >
+            </div>
+          </div>
+        </div>
+      {{else}}
+        {{#isLastElementOfArray @index ../stage_title_list}}
+          <!-- last bar -->
+          <div class="{{stageColStyle ../stageCount}} ok-stage-bar-container">
+            <div class="ok-stage-bar ok-stage-bar-tail">
+              <div style="{{stagePercentageColStyle @index ../currentStage ../stageCount ../percentage}}"
+                   class="ok-stage-bar-progress ok-stage-bar-tail"
+                   {{{currentStagePopoverAttr @index ../currentStage ../currentText ../showText}}}
+              >
+              </div>
+            </div>
+          </div>
+        {{else}}
+          <!-- rest bars -->
+          <div class="{{stageColStyle ../stageCount}} ok-stage-bar-container">
+            <div class="ok-stage-bar">
+              <div style="{{stagePercentageColStyle @index ../currentStage ../stageCount ../percentage}}"
+                   class="ok-stage-bar-progress"
+                   {{{currentStagePopoverAttr @index ../currentStage ../currentText ../showText}}}
+              >
+              </div>
+            </div>
+          </div>
+        {{/isLastElementOfArray}}
+      {{/isFirstElementOfArray}}
+    {{/each}}
+  </div>
+  <!-- stage range text -->
+  <div class="row">
+    {{#each stage_range_text_list}}
+      {{#isNotLastTwoElementOfArray @index ../stage_title_list}}
+        <div class="{{stageColStyle ../stageCount}} ok-range-text ok-range-text-non-tail">
+          <span>{{this}}</span>
+        </div>
+      {{/isNotLastTwoElementOfArray}}
+    {{/each}}
+    <!-- only if the stage count is no less than 2 -->
+    <div class="{{stageColStyle stageCount}} ok-range-text ok-range-text-non-tail">
+      <div class="row" style="padding: 0px">
+        {{#each stage_range_text_list}}
+          {{#isLastSecondElementOfArray @index ../stage_range_text_list}}
+            <div class="col-xs-6 ok-range-text-non-tail">
+              <span>{{this}}</span>
+            </div>
+          {{/isLastSecondElementOfArray}}
+          {{#isLastElementOfArray @index ../stage_range_text_list}}
+            <div class="col-xs-6 ok-range-text-tail">
+              <span>{{this}}</span>
+            </div>
+          {{/isLastElementOfArray}}
+        {{/each}}
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,91 @@
+<!-- *** NAVBAR ***
+_________________________________________________________ -->
+
+<div class="navbar navbar-default navbar-fixed-top yamm" role="navigation" id="navbar">
+  <div class="container">
+    <div class="navbar-header">
+
+      <a class="navbar-brand home" href="/group-buying">
+        <img src="/img/logo-big.png" alt="Minimal logo" class="hidden-xs hidden-sm hidden-md">
+        <img src="/img/logo-sm.png" alt="Minimal logo" class="visible-xs visible-sm visible-md">
+      </a>
+      <div class="navbar-buttons">
+        <button type="button" class="navbar-toggle btn-primary" data-toggle="collapse" data-target="#navigation">
+          <span class="sr-only">Toggle navigation</span>
+          <i class="fa fa-align-justify"></i>
+        </button>
+      </div>
+    </div>
+
+    <ul class="nav navbar-nav navbar-right navbar-collapse collapse right" id="navigation">
+{{#if user.isBuyer}}
+  <li class="dropdown">
+    <a href="javascript:" class="navbar-right-link text-center" data-toggle="dropdown">
+      <i class="fa fa-users"></i>
+      <span>{{t "navbar.me"}}</span>
+      <i class="fa fa-caret-down"></i>
+    </a>
+    <ul class="dropdown-menu">
+      <li class="dropdown-header">
+        {{t "navbar.hi"}}, {{user.email}}
+      </li>
+      <li role="separator" class="divider"></li>
+      <li class="dropdown-header">
+        <strong>{{t "navbar.bussiness"}}</strong>
+      </li>
+      <li>
+        <a href="/group-buying/application-list">
+          {{t "navbar.myGroupBuying"}}
+        </a>
+      </li>
+      <li role="separator" class="divider"></li>
+      <li class="dropdown-header">
+        <strong>
+          {{t "navbar.account"}}
+        </strong>
+      </li>
+      <li>
+        <a href="/group-buying/profile">
+          {{t "navbar.editProfile"}}
+        </a>
+      </li>
+      <li>
+        <a href="/group-buying/change-password">
+          {{t "navbar.changePwd"}}
+        </a>
+      </li>
+      <li>
+        <a href="/group-buying/logout">
+          {{t "navbar.logout"}}
+        </a>
+      </li>
+    </ul>
+  </li>
+{{else}}
+      <li>
+        <a
+          href="/group-buying/login"
+          class="navbar-right-link text-center">
+          <i class="fa fa-users"></i>
+          <span>{{t "navbar.register"}}/{{t "navbar.login"}}</span>
+        </a>
+      </li>
+{{/if}}
+      <li>
+        <a href="javascript:" class="change-language">
+          <select class="form-control" name="" id="">
+            <option value="en">English</option>
+            <option value="es">Español</option>
+            <option value="pt">Português</option>
+          </select>
+        </a>
+      </li>
+    </ul>
+
+  </div>
+
+
+</div>
+<!-- /#navbar -->
+
+<!-- *** NAVBAR END *** -->

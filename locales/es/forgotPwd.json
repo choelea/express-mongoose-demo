@@ -1,0 +1,12 @@
+{
+  "forgotPwd": {
+    "subTitle": "Asistencia de contraseñas",
+    "email": "Correo",
+    "continue": "Continuar",
+    "tip": "Introduzca la dirección de correo electrónico que ha registrado en ChemBnB, luego haga clic en 'Continuar'. Le enviaremos un email de recuperación de contraseña a su buzón, compruébelo por favor.",
+    "successSubTitle": "Se sube con éxito!",
+    "successMes": "El email con contraseña se ha mandado a su correo, ",
+    "successMes2": "haga el favor de revisar su buzón de correo para completar su contraseña dentro de una hora. ",
+    "goToHome": "Volver a la Página de Inicio"
+  }
+}

@@ -1,0 +1,114 @@
+{{#>coreLayout}} {{#*inline "allContent"}}
+  <div id="all">
+    <div id="content">
+      <div class="container">
+
+        {{!-- register form  --}}
+        <div class="col-md-6">
+          <div class="box no-border">
+            <h3>{{t "login.register"}}</h3>
+            <p class="lead">{{t "login.notRegister"}}</p>
+            <hr>
+
+            <form id="signupForm"
+                  action="/group-buying/signup"
+                  method="post">
+
+              <div id="signupErrorDiv" class="alert alert-danger fade in" style="display: none">
+              </div>
+              <div class="form-group">
+                <div id="sendVerficationDiv1" class="pull-right" style="display: none">
+                  <a id="sendVerficationLink1" href="">{{t "login.sendVerificationEmail"}}</a>
+                </div>
+                <label for="email">*{{t "login.email"}}</label>
+                <input type="email" class="form-control" maxlength="50" name="username" id="username" required>
+              </div>
+              <div class="form-group">
+                <label for="password">*{{t "login.password"}}</label>
+                <input type="password" class="form-control" minlength="6" required name="password" id="password"
+                       maxlength="12">
+              </div>
+              <div class="form-group">
+                <label for="captcha">*{{t 'groupon.codeShow'}}</label>
+                <div class="row">
+                  <div class="col-xs-6">
+                    <input type="text" class="form-control" required name="captcha" id="captcha"
+                           maxlength="4">
+                  </div>
+                  <div class="col-xs-6">
+                    <img src="/group-buying/captcha/generate" height="34" alt="">
+                    <i class="fa fa-repeat" id="refreshCaptchaId" style="font-size: 18px; margin-left: 12px; cursor: pointer;"></i>
+                  </div>
+                </div>
+
+              </div>
+              <div class="text-center">
+                <button type="submit" id="btnSignup" class="btn btn-primary"><i class="fa fa-user-md"></i> {{t
+                  "login.register"}}</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        {{!-- / register form  --}}
+        {{!-- login form  --}}
+        <div class="col-md-6">
+          <div class="box no-border">
+            <h3>{{t "login.login"}}</h3>
+
+            <p class="lead">{{t "login.alreadyAccount"}}</p>
+
+            <hr>
+
+            <form id="loginForm"
+                  action="/group-buying/login{{#if query.redirectTo}}?redirectTo={{query.redirectTo}}{{/if}}"
+                  method="post">
+              {{#each loginErrors}}
+                <div class="alert alert-danger fade in">
+                  <a href="#" class="close" data-dismiss="alert">&times;</a>
+                  {{this}}
+                </div>
+              {{/each}}
+              <div class="form-group">
+                {{#if notVerified}}
+                  <div class="pull-right">
+                    <a
+                      href="/group-buying/send-verify-email?userEmail={{userEmail}}">{{t
+                      "login.sendVerificationEmail"}}</a>
+                  </div>
+                {{/if}}
+                <label for="username2">*{{t "login.email"}}</label>
+                <input type="email" class="form-control" name="username" maxlength="50" required id="username"
+                       value="{{userEmail}}">
+              </div>
+              <div class="form-group">
+                <div class="pull-right">
+                  <a href="/group-buying/forgot-password">{{t "login.forgotPwd"}}</a>
+                </div>
+                <label for="password2">*{{t "login.password"}}</label>
+                <input type="password" name="password" class="form-control" minlength="6" required id="password"
+                       maxlength="12">
+              </div>
+              <div class="text-center">
+                <button type="submit" id="btnSignin" class="btn btn-primary"><i class="fa fa-sign-in"></i>{{t
+                  "login.login"}}</button>
+
+              </div>
+            </form>
+          </div>
+        </div>
+        {{!-- / login form  --}}
+      </div>
+      <!-- /.container -->
+    </div>
+    <!-- /#content -->
+  </div>
+  <!-- /#content -->
+  <!-- /#all -->
+  <!-- /#content -->
+  {{>footer}} {{>copyright}}
+{{/inline}}
+{{#*inline "jsRef"}}
+  {{>jsRef}}
+  <script src="js/login.js"></script>
+{{/inline}}
+{{/coreLayout}}

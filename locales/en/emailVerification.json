@@ -1,0 +1,12 @@
+{
+  "emailverify": {
+    "regSuccTitle":"Register successful!",
+    "activedTitle":"Actived!",
+    "0330520014":"Verification email couldn't be sent again within 1 minute.",
+    "0330520018": "The Email has been verified already.",
+    "0330520019": "Failed to activate your account due to an wrong verification token.",
+    "success-1": "Congratulations on your successful registration! Login Account: ",
+    "success-2": "Please ",
+	  "success-3": " first to start your InstantQuote journey."
+  }
+}

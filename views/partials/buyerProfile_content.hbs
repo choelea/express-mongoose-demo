@@ -1,0 +1,97 @@
+<div class="container buyer-profile-page">
+  <div class="row">
+    <div class="col-sm-4 col-md-3">
+      <hr>
+      <h3>
+        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+        Buyer Center
+      </h3>
+      <div class="panel panel-default sidebar-menu">
+        <div class="panel-heading">
+          <h4 class="panel-title">Business</h4>
+        </div>
+        <div class="panel-body">
+          <ul class="nav nav-pills nav-stacked">
+            <li class="active">
+              <a href="/group-buying/application-list">
+                My Groupbuying
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="panel panel-default sidebar-menu">
+        <div class="panel-heading">
+          <h4 class="panel-title">Account</h4>
+        </div>
+        <div class="panel-body">
+          <ul class="nav nav-pills nav-stacked">
+            <li class="active">
+              <a href="/admin/application-list">
+                Edit Profile
+              </a>
+            </li>
+            <li>
+              <a href="/admin/referring-list">
+                Change Password
+              </a>
+            </li>
+            <li>
+              <a href="/admin/contact-us-list">
+                Log Out
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-8 col-md-9" id="customer-orders">
+      <ul class="breadcrumb">
+        <li>
+          <a href="#">Buyer Center</a>
+        </li>
+        <li>
+          <a href="#">Account</a>
+        </li>
+        <li>Edit Profile</li>
+      </ul>
+      <hr>
+      <div class="row">
+        <div class="col-sm-3 text-center">
+          <i class="fa fa-user-circle-o" style="font-size: 10em;" aria-hidden="true"></i>
+          <h5>{{t "buyerCenter.myProfile"}}</h5>
+        </div>
+        <div class="col-sm-9 buyer-profile-info">
+          <p class="app-detail-info">
+            <label for="">{{t "buyerCenter.email"}} :</label>
+            <span>{{myProfileInfo.email}}</span>
+          </p>
+          <p class="app-detail-info">
+            <label for="">{{t "buyerCenter.name"}} :</label>
+            <span>{{myProfileInfo.firstName}} {{myProfileInfo.lastName}}</span>
+          </p>
+          <p class="app-detail-info">
+            <label for="">{{t "buyerCenter.companyName"}} :</label>
+            <span>{{myProfileInfo.companyName}}</span>
+          </p>
+          <p class="app-detail-info">
+            <label for="">{{t "buyerCenter.country"}} :</label>
+            <span>{{myProfileInfo.country}}</span>
+          </p>
+          <p class="app-detail-info">
+            <label for="">{{t "buyerCenter.telephone"}} :</label>
+            <span>{{myProfileInfo.telphone}}</span>
+          </p>
+          <br>
+          <p class="app-detail-info">
+            <label for="">&nbsp;</label>
+            <span>
+              <a href="/group-buying/profile/edit" class="btn btn-primary">{{t "buyerCenter.edit"}}</a>
+            </span>
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,148 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4 col-md-3">
+      <div class="panel panel-default sidebar-menu">
+        <div class="panel-heading">
+          <h3 class="panel-title">Groupbuying</h3>
+        </div>
+        <div class="panel-body">
+          <ul class="nav nav-pills nav-stacked">
+            <li class="active">
+              <a href="/admin/application-list">
+                <i class="fa fa-list"></i>
+                Application List
+              </a>
+            </li>
+            <li>
+              <a href="/admin/referring-list">
+                <i class="fa fa-heart"></i>
+                Refer to Friend
+              </a>
+            </li>
+            <li>
+              <a href="/admin/contact-us-list">
+                <i class="fa fa-user"></i>
+                Contact Us
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-8 col-md-9" id="customer-orders">
+      <h3>Groupbuying Application Details</h3>
+      <form class="gb-detail" id="group-apply-form">
+        <div class="block-box">
+          <h3>{{t 'groupBuyingApply.buyerInfo'}}</h3>
+          <div class="form-horizontal">
+            <div class="form-group">
+              <label for="buyerEmail" class="col-sm-3 control-label">*{{t 'groupBuyingApply.email'}}:</label>
+              <div class="col-sm-6">
+                <input type="email" class="form-control" name="email" id="buyerEmail"
+                       placeholder="{{t 'groupBuyingApply.email'}}">
+              </div>
+              <div id="warnMessage"></div>
+            </div>
+            <div class="form-group">
+              <label for="buyerName" class="col-sm-3 control-label">*{{t 'groupBuyingApply.contact'}}:</label>
+              <div class="col-sm-3">
+                <input type="text" class="form-control" name="firstName" id="buyerFirstName"
+                       placeholder="{{t 'groupBuyingApply.firstName'}}">
+              </div>
+              <div class="col-sm-3">
+                <input type="text" class="form-control" name="lastName" id="buyerLastName"
+                       placeholder="{{t 'groupBuyingApply.lastName'}}">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="buyerCompanyName" class="col-sm-3 control-label">*{{t 'groupBuyingApply.companyName'}}:</label>
+              <div class="col-sm-6">
+                <input type="text" class="form-control" name="companyName" id="buyerCompanyName"
+                       placeholder="{{t 'groupBuyingApply.companyName'}}">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="buyerCountry" class="col-sm-3 control-label">*{{t 'groupBuyingApply.country'}}:</label>
+              <div class="col-sm-6">
+                <input type="text" class="form-control" name="countryValue" id="buyerCountry">
+                <input type="hidden" name="country" id="buyerCountryCode">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="buyerCompanyName" class="col-sm-3 control-label">*{{t 'groupBuyingApply.telephone'}}:</label>
+              <div class="col-sm-6">
+                <input type="text" class="form-control" name="telphone" id="userTelphone">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="block-box">
+          <h3>{{t 'groupBuyingApply.appDetails'}}</h3>
+          <div class="form-horizontal">
+            <div class="form-group">
+              <label for="productName" class="col-sm-3 control-label">*集采活动ID:</label>
+              <div class="col-sm-6">
+                <select class="form-control" id="groupBuyingList">
+                  {{#each groupBuyingInfo.outGroupBuyingInfoList}}
+                    <option value="{{this.groupBuyingCode}}">{{this.groupBuyingCode}}</option>
+                  {{/each}}
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="productName" class="col-sm-3 control-label">*{{t 'groupBuyingApply.product'}}:</label>
+              <div class="col-sm-6">
+                <p id="applyProductName">
+                </p>
+                <input type="hidden" name="productCode" id="applyProductCode">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="buyerEmail" class="col-sm-3 control-label">*{{t 'groupBuyingApply.currentFOBPrice'}}:</label>
+              <div class="col-sm-6">
+                <p class="iq-color iq-font-family">
+                  <strong style="font-size: 18px;"><span id="applyPrice">USD 2.17/KG</span></strong>
+                </p>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="productQuantity" class="col-sm-3 control-label">*{{t 'groupBuyingApply.quantity'}}:</label>
+              <div class="col-sm-3" id="applyQuantity">
+                <input type="text" class="form-control" name="quantity" id="quantityNum">
+              </div>
+              <div class="col-sm-3">
+                <span id="quantityUnit"></span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="productQuantity" class="col-sm-3 control-label">*{{t 'groupBuyingApply.PaymentTerm'}}:</label>
+              <div class="col-sm-6">
+                <select class="form-control" name="paymentTerm" id="applyPaymentTerm">
+                  {{#each groupBuyingInfo.paymentTerms}}
+                    <option value="{{key}}">{{value}}</option>
+                  {{/each}}
+                </select>
+              </div>
+
+            </div>
+            <div class="form-group">
+              <label for="referredBy" class="col-sm-3 control-label">{{t 'groupBuyingApply.referredBy'}} :</label>
+              <div class="col-sm-6">
+                <input type="text" class="form-control" name="referredBy">
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <br>
+        <br>
+        <div class="text-center">
+          <button style="width: 120px" class="btn btn-info" type="submit">{{t 'groupBuyingApply.submit'}}</button>
+        </div>
+        <br>
+        <br>
+      </form>
+    </div>
+
+  </div>
+</div>

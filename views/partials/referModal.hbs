@@ -1,0 +1,49 @@
+
+<!-- Modal -->
+<div class="modal fade" id="referModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">{{t 'groupon.referToAFriend'}}</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <form role="form" class="clearfix" id="referForm">
+              <div class="form-group">
+                <label for="friendEmail">*{{t 'groupon.yourFriendsEmail'}}</label>
+                <input type="text" class="form-control" id="friendEmail" name="friendEmail">
+              </div>
+              <div class="form-group">
+                <label for="yourEmail">*{{t 'groupon.yourEmail'}}</label>
+                <input type="text" class="form-control" id="yourEmail" name="yourEmail">
+              </div>
+              <div class="form-group">
+                <label for="yourEmail">*{{t 'groupon.codeShow'}}</label>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <input class="form-control" id="codeShown" name="code" maxlength="4">
+                  </div>
+                  <div class="col-sm-6">
+                    <img src="" alt="" style="height:34px; width:100px" id="referCaptchaId">
+                    <i class="fa fa-repeat refresh-friend-btn" id="refreshCaptchaId"  style="font-size: 18px; margin-left: 12px; cursor: pointer;"></i>
+                  </div>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-info pull-right"
+              {{#ifEquals simpleIntroduce.status 'UPCOMING'}}
+                disabled="disabled"
+              {{/ifEquals}}
+                {{#ifEquals simpleIntroduce.status 'CLOSED'}}
+                      disabled="disabled"
+                {{/ifEquals}}
+              >{{t 'groupon.submit'}}</button>
+              <input type="hidden" name="gbid" id="gbid" value={{simpleIntroduce.groupBuyingId}}>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

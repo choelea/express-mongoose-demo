@@ -1,0 +1,12 @@
+{
+  "emailverify": {
+    "regSuccTitle":"Registrado com êxito!",
+    "activedTitle":"Ativado!",
+    "0330520014":"E-mail de verificação não poderia ser enviado novamente dentro de 1 minuto.",
+    "0330520018": "O e-mail já foi verificado.",
+    "0330520019": "Failed to activate your account due to an wrong verification token.",
+    "success-1": "Parabéns pela sua inscrição bem sucedida! Conta de Login: ",
+    "success-2": "Por favor,  primeiro ",
+	  "success-3": "para iniciar a sua viagem em InstantQuote."
+  }
+}

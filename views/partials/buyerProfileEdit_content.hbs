@@ -1,0 +1,127 @@
+<div class="container buyer-profile-page">
+  <div class="row">
+    <div class="col-sm-4 col-md-3">
+      <hr>
+      <h3>
+        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+        Buyer Center
+      </h3>
+      <div class="panel panel-default sidebar-menu">
+        <div class="panel-heading">
+          <h4 class="panel-title">Business</h4>
+        </div>
+        <div class="panel-body">
+          <ul class="nav nav-pills nav-stacked">
+            <li class="active">
+              <a href="/group-buying/application-list">
+                My Groupbuying
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="panel panel-default sidebar-menu">
+        <div class="panel-heading">
+          <h4 class="panel-title">Account</h4>
+        </div>
+        <div class="panel-body">
+          <ul class="nav nav-pills nav-stacked">
+            <li class="active">
+              <a href="/admin/application-list">
+                Edit Profile
+              </a>
+            </li>
+            <li>
+              <a href="/admin/referring-list">
+                Change Password
+              </a>
+            </li>
+            <li>
+              <a href="/admin/contact-us-list">
+                Log Out
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-8 col-md-9" id="customer-orders">
+      <ul class="breadcrumb">
+        <li>
+          <a href="#">Buyer Center</a>
+        </li>
+        <li>
+          <a href="#">Account</a>
+        </li>
+        <li>Edit Profile</li>
+      </ul>
+      <hr>
+      <div class="row">
+        <div class="col-sm-3 text-center">
+          <i class="fa fa-user-circle-o" style="font-size: 10em;" aria-hidden="true"></i>
+          <h5>{{t "buyerCenter.myProfile"}}</h5>
+        </div>
+        <div class="col-sm-9 buyer-profile-form">
+          <form class="form-horizontal" id="profile-edit">
+            <div class="form-group">
+              <label class="col-sm-4 control-label">
+                <em class="iq-color">*</em>
+                {{t "buyerCenter.email"}} :
+              </label>
+              <div class="col-sm-8" style="padding-top: 7px;">
+                {{myProfileInfo.email}}
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-4 control-label">
+                <em class="iq-color">*</em>
+                {{t "buyerCenter.name"}} :
+              </label>
+              <div class="col-sm-4">
+                <input type="text" class="form-control" name="firstName" placeholder="First Name" value="{{myProfileInfo.firstName}}">
+              </div>
+              <div class="col-sm-4">
+                <input type="text" class="form-control" name="lastName" placeholder="Last Name" value="{{myProfileInfo.lastName}}">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-4 control-label">
+                <em class="iq-color">*</em>
+                {{t "buyerCenter.companyName"}} :
+              </label>
+              <div class="col-sm-8">
+                <input type="text" class="form-control" name="companyName" placeholder="Company Name" value="{{myProfileInfo.companyName}}">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-4 control-label">
+                <em class="iq-color">*</em>
+                {{t "buyerCenter.country"}} :
+              </label>
+              <div class="col-sm-8">
+                <input type="text" class="form-control" name="countryValue" id="buyerCountry" value="{{myProfileInfo.country}}">
+                <input type="hidden" name="country" id="buyerCountryCode" value="{{myProfileInfo.countryCode}}">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-4 control-label">
+                <em class="iq-color">*</em>
+                {{t "buyerCenter.telephone"}} :
+              </label>
+              <div class="col-sm-4">
+                <input type="text" class="form-control" name="telphone" placeholder="Telephone" value="{{myProfileInfo.telphone}}">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-offset-4 col-sm-8">
+                <button type="submit" class="btn btn-primary">{{t "buyerCenter.save"}}</button>
+                <button class="btn btn-default" onclick="javascript:window.location.href='/group-buying/profile'">{{t "buyerCenter.cancel"}}</button>
+              </div>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

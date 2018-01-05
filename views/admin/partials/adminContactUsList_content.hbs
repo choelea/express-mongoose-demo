@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4 col-md-3">
+      {{>admin_menu}}
+    </div>
+    <div class="col-sm-8 col-md-9" id="customer-orders">
+      <h3>Contact Us</h3>
+      <div class="form-inline">
+        <div class="form-group">
+          <label for="">集采活动ID: </label>
+          <select class="form-control" id="groupBuyingChange">
+            <option value="">All</option>
+            {{#each groupBuyingCodes}}
+              <option value="{{this.groupBuyingCode}}">{{this.groupBuyingCode}}</option>
+            {{/each}}
+          </select>
+        </div>
+      </div>
+      <hr>
+      <div>
+        <div class="table-responsive">
+          <table class="table table-hover">
+            <thead>
+            <tr>
+              <th>Date</th>
+              <th>集采活动ID</th>
+              <th>Email</th>
+              <th>Question</th>
+            </tr>
+            </thead>
+            <tbody>
+              {{#each contactList.data.list}}
+                <tr>
+                  <td>{{this.date}}</td>
+                  <td>{{this.groupBuyingCode}}</td>
+                  <td>{{this.email}}</td>
+                  <td>{{this.question}}</td>
+                </tr>
+              {{/each}}
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <!-- pagination -->
+    {{>pagination}}
+    <!-- / pagination -->
+  </div>
+</div>

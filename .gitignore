@@ -1,0 +1,16 @@
+.DS_STORE
+*.log
+node_modules
+coverage
+.idea/
+/yarn.lock
+dist/
+/build/
+/locales/en/translation.json
+/locales/es/translation.json
+/locales/pt/translation.json
+/locales/en/translation.missing.json
+/locales/es/translation.missing.json
+/locales/pt/translation.missing.json
+/package-lock.json
+/uploads/

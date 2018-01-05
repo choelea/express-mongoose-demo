@@ -1,0 +1,251 @@
+<div class="container admin-gb-detail-page">
+  <div class="row">
+    <div class="col-sm-4 col-md-3">
+      <div class="panel panel-default sidebar-menu">
+        <div class="panel-heading">
+          <h3 class="panel-title">Groupbuying</h3>
+        </div>
+        <div class="panel-body">
+          <ul class="nav nav-pills nav-stacked">
+            <li class="active">
+              <a href="/admin/application-list">
+                <i class="fa fa-list"></i>
+                Application List
+              </a>
+            </li>
+            <li>
+              <a href="/admin/referring-list">
+                <i class="fa fa-heart"></i>
+                Refer to Friend
+              </a>
+            </li>
+            <li>
+              <a href="/admin/contact-us-list">
+                <i class="fa fa-user"></i>
+                Contact Us
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-8 col-md-9" id="customer-orders">
+      <h3>Groupbuying Application Detail</h3>
+      <form class="gb-detail" id="updateApplicationForm">
+        <div class="block-box">
+          <h3>{{t 'groupBuyingApply.buyerInfo'}}</h3>
+          <div class="form-horizontal">
+            <div class="form-group">
+              <label for="buyerEmail" class="col-sm-3 control-label">*{{t 'groupBuyingApply.email'}}:</label>
+              <div class="col-sm-6">
+                <p class="value-content">
+                  {{detail.buyerEmail }}
+                </p>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="buyerName" class="col-sm-3 control-label">*{{t 'groupBuyingApply.contact'}}:</label>
+              <div class="col-sm-6">
+                <p class="value-content">
+                  {{detail.buyerContact }}
+                </p>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="buyerCompanyName" class="col-sm-3 control-label">*{{t 'groupBuyingApply.companyName'}}:</label>
+              <div class="col-sm-6">
+                <p class="value-content">
+                  {{detail.buyerCompanyName }}
+                </p>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="buyerCountry" class="col-sm-3 control-label">*{{t 'groupBuyingApply.country'}}:</label>
+              <div class="col-sm-6">
+                <p class="value-content">
+                  {{detail.buyerCountry }}
+                </p>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="buyerCompanyName" class="col-sm-3 control-label">*{{t 'groupBuyingApply.telephone'}}:</label>
+              <div class="col-sm-6">
+                <p class="value-content">
+                  {{detail.buyerTelNo }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="block-box">
+
+          <h3>{{t 'groupBuyingApply.appDetails'}}</h3>
+          <div class="form-horizontal">
+            <div class="form-group">
+              <label for="gb-status" class="col-sm-3 control-label">Status:</label>
+              <div class="col-sm-6">
+                <select class="form-control" name="status" id="gb-status">
+                  {{#each detail.statusList}}
+                    {{#ifEquals key ../detail.appStatus}}
+                      <option value="{{key}}" selected="true">{{value}}</option>
+                    {{else}}
+                      <option value="{{key}}">{{value}}</option>
+                    {{/ifEquals}}
+                  {{/each}}
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="" class="col-sm-3 control-label">Date:</label>
+              <div class="col-sm-6">
+                <p class="value-content">
+                  {{detail.appDate}}
+                </p>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="productName" class="col-sm-3 control-label">*{{t 'groupBuyingApply.product'}}:</label>
+              <div class="col-sm-6">
+                <p class="value-content">
+                  {{detail.appProduct}}
+                </p>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="buyerEmail" class="col-sm-3 control-label">*{{t 'groupBuyingApply.currentFOBPrice'}}:</label>
+              <div class="col-sm-6">
+                <p class="value-content iq-color iq-font-family">
+                  <strong>{{detail.appFobPrice}}</strong>
+                </p>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="quantityNum" class="col-sm-3 control-label">*{{t 'groupBuyingApply.quantity'}}:</label>
+              <div class="col-sm-3" id="applyQuantity">
+                <input type="text" class="form-control" name="quantity" id="quantityNum" value={{detail.appQuantity}}>
+              </div>
+              <div class="col-sm-3">
+                <span id="quantityUnit"></span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="applyPaymentTerm" class="col-sm-3 control-label">*{{t 'groupBuyingApply.PaymentTerm'}}:</label>
+              <div class="col-sm-6">
+                <select class="form-control" name="paymentTerm" id="applyPaymentTerm">
+                  {{#each detail.paymentTerms}}
+                    {{#ifEquals key ../detail.appPaymentTerm}}
+                    <option value="{{key}}" selected="true">{{value}}</option>
+                    {{else}}
+                      <option value="{{key}}">{{value}}</option>
+                    {{/ifEquals}}
+                  {{/each}}
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="referredBy" class="col-sm-3 control-label">{{t 'groupBuyingApply.referredBy'}} :</label>
+              <div class="col-sm-6">
+                <input type="text" class="form-control" name="referredBy" maxlength=100 id="referredBy" value={{detail.appReferredBy}}>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="totalAmount" class="col-sm-3 control-label">Total Amount :</label>
+              <div class="col-sm-6">
+                <input type="text" class="form-control" name="totalAmount"  maxlength=50 id="totalAmount" value={{detail.totalAmount}}>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="block-box">
+          <h3>Comments and Attachments</h3>
+          <div class="form-horizontal">
+            <div class="form-group">
+              <label for="gbComments" class="col-sm-3 control-label">Comments:</label>
+              <div class="col-sm-6">
+                <textarea class="form-control" name="gbComments" id="gbComments" maxlength=500 rows="4"></textarea>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="" class="col-sm-3 control-label">Attachments:</label>
+              <span class="btn btn-success fileinput-button">
+              <i class="glyphicon glyphicon-plus"></i>
+              <span>Select files...</span>
+                <!-- The file input field used as target for the file upload widget -->
+              <input id="fileupload" type="file" name="files[]" multiple>
+          </span>
+              <br>
+              <br>
+              <!-- The global progress bar -->
+              <div id="progress" class="progress">
+                <div class="progress-bar progress-bar-success"></div>
+              </div>
+              <!-- The container for the uploaded files -->
+              <input type="hidden" id="attachments" name="attachments">
+              <div id="files" class="files">
+                <ul id="fileStore">
+
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="text-center">
+          <input type="hidden" value={{detail.id}} name="itemId">
+          <button class="btn btn-info" type="submit">save</button>
+          <button onclick="javascript:confirm('要取消此次修改吗？')" class="btn btn-default">Cancel</button>
+        </div>
+        <div class="block-box">
+          <h3>History</h3>
+
+          <ul class="history-list">
+            {{#each detail.history}}
+              <li>
+                <p class="history-list-title">
+                  {{this.hisDate}}
+                  <span> {{this.hisOperator}}</span>
+                </p>
+                <p class="history-list-values">
+                  {{this.hisContent}}
+                </p>
+              </li>
+            {{/each}}
+          </ul>
+        </div>
+        <br>
+        <br>
+
+        <br>
+        <br>
+      </form>
+    </div>
+
+  </div>
+</div>
+<div class="modal fade" id="assignModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+          aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Assign</h4>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="customerServiceStaff">Customer Service Staff: </label>
+            <input type="text" class="form-control" id="customerServiceStaff">
+          </div>
+          <div class="form-group">
+            <label for="operator">Operator: </label>
+            <input type="text" class="form-control" id="operator">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

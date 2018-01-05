@@ -1,0 +1,31 @@
+{{#>adminLayout}}
+  {{#*inline "adminHeader"}}
+    {{>adminHeader}}
+  {{/inline}}
+  {{#*inline "allContent"}}
+    <div id="all">
+      <!-- *** CONTENT ***
+      _________________________________________________________
+      _________________________________________________________
+      -->
+      <div id="advantages">
+        {{>adminApplicationList_content}}
+      </div>
+    </div>
+    <!-- /#all -->
+  {{/inline}}
+  {{#*inline "adminJsRef"}}
+    {{>adminJsRef}}
+    <script src="js/jquery.twbsPagination.min.js"></script>
+    <script src="js/adminApplicationList.js"></script>
+    <script>
+      window.OKCHEM_FILTER_PAGE_INDEX = {{pageIndex}}
+      window.OKCHEM_FILTER_PAGE_SIZE = {{pageSize}}
+      window.OKCHEM_FILTER_PAGE_COUNT = {{pageCount}}
+      window.OKCHEM_I18N = {{{json i18n}}}
+      window.OKCHEM_SELECTED_GB_ID = {{gbId}}
+      window.OKCHEM_APPLICATION_LIST =  {{{json applicationList}}}
+    </script>
+  {{/inline}}
+{{/adminLayout}}
+

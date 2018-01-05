@@ -1,0 +1,34 @@
+{{#>coreLayout}}
+  {{#*inline "header"}}
+    {{>header}}
+    {{#*inline "seoMeta"}}
+      <title>{{t "tdk.title.homePage"}}</title>
+      <meta name="description" content="{{#each groupBuyingInfoList}}{{shareInfo}} {{/each}} {{t "tdk.desc.homePage"}}">
+      <meta property='og:title' content="{{t "tdk.title.homePage"}}"/>
+      <meta prefix="og: http://ogp.me/ns#" property="og:description"
+            content='{{#each groupBuyingInfoList}}{{shareInfo}} {{/each}} {{t "tdk.desc.homePage"}}'>
+      <meta prefix="og: http://ogp.me/ns#" property="og:image" content='{{domain}}{{subdomain}}/img/gd-04.jpg'/>
+    {{/inline}}
+  {{/inline}}
+  {{#*inline "allContent"}}
+    <div id="all">
+      <!-- *** CONTENT ***
+      _________________________________________________________
+      _________________________________________________________
+      -->
+      <div id="content">
+        {{>buyerChangePwd_content}}
+      </div>
+      {{>footer}}
+      {{>copyright}}
+    </div>
+    <!-- /#all -->
+  {{/inline}}
+  {{#*inline "jsRef"}}
+    {{>jsRef}}
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/groupon.js"></script>
+    <script src="js/buyerChangePwd.js"></script>
+  {{/inline}}
+{{/coreLayout}}
+

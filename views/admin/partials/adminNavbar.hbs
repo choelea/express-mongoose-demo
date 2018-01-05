@@ -1,0 +1,45 @@
+<!-- *** NAVBAR ***
+_________________________________________________________ -->
+
+<div class="navbar navbar-default navbar-fixed-top yamm" role="navigation" id="navbar">
+  <div class="container">
+    <div class="navbar-header">
+
+      <a class="navbar-brand home" href="/admin/application-list">
+        <img src="/img/logo-big.png" alt="Minimal logo" class="hidden-xs hidden-sm visible-md-inline visible-lg-inline">
+        <img src="/img/logo-sm.png" alt="Minimal logo" class="visible-xs visible-sm">
+        <span>后台管理系统</span>
+      </a>
+      <div class="navbar-buttons">
+        <button type="button" class="navbar-toggle btn-primary" data-toggle="collapse" data-target="#navigation">
+          <span class="sr-only">Toggle navigation</span>
+          <i class="fa fa-align-justify"></i>
+        </button>
+      </div>
+    </div>
+
+    <ul class="nav navbar-nav navbar-right navbar-collapse collapse right" id="navigation">
+      <li class="dropdown">
+        <a href="/admin/login" class="navbar-right-link text-center" data-toggle="dropdown">
+          <i class="fa fa-users"></i>
+          <span>{{user.email}}</span>
+          <i class="fa fa-caret-down"></i>
+        </a>
+        <ul class="dropdown-menu">
+          <li>
+            <a href="/admin/change-password">
+              {{t "navbar.changePwd"}}
+            </a>
+          </li>
+          <li><a href="/admin/logout">{{t "navbar.logout"}}</a></li>
+        </ul>
+      </li>
+    </ul>
+
+  </div>
+
+
+</div>
+<!-- /#navbar -->
+
+<!-- *** NAVBAR END *** -->

@@ -1,0 +1,28 @@
+{
+  "navbar": {
+    "hotProduct": "Productos",
+    "hi": "Hola",
+    "myProducts": "Mis Produtctos",
+    "mySuppliers": "mis proveedores",
+    "myInquires": "Mis solicitudes de cotización",
+    "myMessages": "Mis mensajes",
+    "me": "Mi IQ",
+    "app": "App",
+    "logout": "Log out",
+    "scanQR": "Escanea QR code para obtener el app.",
+    "signinup": "Registro/Login",
+    "manageQuotation": "Manejar mis cotizaciones",
+    "manageProductQuotation": "Manage Product Quotations",
+    "finance": "Finanzas",
+    "changePwd": "Change Password",
+    "messages": "Mensajes",
+    "inquiries": "solicitudes de cotización",
+    "bussiness": "Bussiness",
+    "myGroupBuying":"My Groupbuying",
+    "myAccumulatePoints":"My Accumulate Points",
+    "account":"Account",
+    "editProfile":"Edit Profile",
+    "register":"Register",
+    "login":"Login"
+  }
+}

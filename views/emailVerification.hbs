@@ -1,0 +1,32 @@
+{{#>coreLayout}}
+  {{#*inline "allContent"}}
+    <div id="all">
+      <div id="content">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-8 col-sm-offset-2">
+              <h3 class="text-center">{{title}}</h3>
+              <div class="box">
+                  {{#if errMsg}}
+                  <p class="text-muted bg-danger" style="padding: 15px;">
+                    {{errMsg}}
+                  </p>
+                  {{else}}
+                  <p class="text-muted bg-success" style="padding: 15px;">
+                      {{t "emailverify.success-1"}}{{email}}. {{t "emailverify.success-2"}}<a class="underline" href="/group-buying/login?redirectTo={{baseUrl}}/group-buying">{{t "login.login"}}</a> {{t "emailverify.success-3"}}
+                  </p>
+                  {{/if}}
+                <p class="buttons text-center"><a href="/instant-quote" class="btn btn-primary"><i class="fa fa-home"></i>
+                      {{t "forgotPwd.goToHome"}}</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /#content -->
+    {{>footer}}
+    {{>copyright}}
+  {{/inline}}
+{{/coreLayout}}

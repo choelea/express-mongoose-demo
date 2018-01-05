@@ -1,0 +1,24 @@
+{{#>adminLayout}}
+  {{#*inline "adminHeader"}}
+    {{>adminHeader}}
+    <link rel="stylesheet" href="css/jquery.fileupload.css">
+  {{/inline}}
+  {{#*inline "allContent"}}
+    <div id="all">
+      <!-- *** CONTENT ***
+      _________________________________________________________
+      _________________________________________________________
+      -->
+      <div id="content">
+        {{>adminApplicationDetailEdit_content}}
+      </div>
+    </div>
+    <!-- /#all -->
+  {{/inline}}
+  {{#*inline "adminJsRef"}}
+    {{>adminJsRef}}
+    <script src="js/jquery.fileupload.js"></script>
+    <script src="js/adminApplicationDetailEdit.js"></script>
+  {{/inline}}
+{{/adminLayout}}
+

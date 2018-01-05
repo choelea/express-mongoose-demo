@@ -1,0 +1,8 @@
+{
+  "resetPwd": {
+    "subTitle": "Password Assistance",
+    "newpwd": "New Password",
+    "newpwdConfirm": "Confirm New Password",
+    "submit": "Submit"
+  }
+}
