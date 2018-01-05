@@ -67,12 +67,12 @@ var profileForm=(function(){
           headers: {
             "Content-Type":"application/json",
           },
-          url: '/group-buying/profile/edit',
+          url: '/live-market/profile/edit',
           type: 'POST',
           data: JSON.stringify(data),
           success: function(response) {
             if(response.datas.success){
-              window.location.href='/group-buying/profile'
+              window.location.href='/live-market/profile'
             }
           },
           error: function (response) {

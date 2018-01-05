@@ -69,7 +69,7 @@ var referApply = (function () {
   var _validator = null
   function init() {
     $('#refreshCaptchaId').bind('click', function () {
-      $('#refreshCaptchaId').prev().attr('src', '/group-buying/captcha/generate?'+Date.now())
+      $('#refreshCaptchaId').prev().attr('src', '/live-market/captcha/generate?'+Date.now())
     })
 
     $('#referToAFriend').bind('click', function () {
@@ -77,7 +77,7 @@ var referApply = (function () {
         $("#yourEmail").val('')
         $("#codeShown").val('')
         _validator.resetForm()
-      $('#refreshCaptchaId').prev().attr('src', '/group-buying/captcha/generate' + '?' + Math.random())
+      $('#refreshCaptchaId').prev().attr('src', '/live-market/captcha/generate' + '?' + Math.random())
     })
     var errorClass = 'form-group--invalid'
     $("#referForm").submit(function (e) {
@@ -138,7 +138,7 @@ var referApply = (function () {
 
           },
           error: function (response) {
-            $('#refreshCaptchaId').prev().attr('src', '/group-buying/captcha/generate?'+Date.now())
+            $('#refreshCaptchaId').prev().attr('src', '/live-market/captcha/generate?'+Date.now())
             window.okchem.showError(response.responseJSON.errorMsg)
 
           },
@@ -158,7 +158,7 @@ var contactForm = (function () {
   var _validator = null
   function init() {
     $('#contactRefreshCaptchaId').bind('click', function () {
-      $('#contactRefreshCaptchaId').prev().attr('src', '/group-buying/captcha/generate' + '?' + Math.random())
+      $('#contactRefreshCaptchaId').prev().attr('src', '/live-market/captcha/generate' + '?' + Math.random())
     })
 
     $('#contactUs').bind('click', function () {
@@ -166,7 +166,7 @@ var contactForm = (function () {
       $("#yourQuestion").val('')
       $("#codeShown2").val('')
       _validator.resetForm()
-      $('#contactRefreshCaptchaId').prev().attr('src', '/group-buying/captcha/generate' + '?' + Math.random())
+      $('#contactRefreshCaptchaId').prev().attr('src', '/live-market/captcha/generate' + '?' + Math.random())
     })
     var errorClass = 'form-group--invalid'
     $("#referForm").submit(function (e) {
@@ -227,7 +227,7 @@ var contactForm = (function () {
 
           },
           error: function (response) {
-            $('#contactRefreshCaptchaId').prev().attr('src', '/group-buying/captcha/generate' + '?' + Math.random())
+            $('#contactRefreshCaptchaId').prev().attr('src', '/live-market/captcha/generate' + '?' + Math.random())
             window.okchem.showError(response.responseJSON.errorMsg)
 
           },

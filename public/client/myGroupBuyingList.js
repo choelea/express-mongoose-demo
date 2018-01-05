@@ -36,7 +36,7 @@ var filter = (function () {
   }
   function gotoNextUrl() {
     var pagingStr = '?pageIndex={0}&pageSize={1}'.format(_pageIndex, _pageSize)
-    window.location.replace(("/group-buying/application-list{0}").format(
+    window.location.replace(("/live-market/application-list{0}").format(
       pagingStr
 
     ))

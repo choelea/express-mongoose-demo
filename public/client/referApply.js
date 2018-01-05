@@ -3,7 +3,7 @@ var referApply = (function () {
   var _validator = null
   function init() {
     $('#refreshCaptchaId').bind('click', function () {
-      $('#refreshCaptchaId').prev().attr('src', '/group-buying/captcha/generate?'+Date.now())
+      $('#refreshCaptchaId').prev().attr('src', '/live-market/captcha/generate?'+Date.now())
     })
 
     $('.referToFriendBtn').bind('click', function () {
@@ -14,7 +14,7 @@ var referApply = (function () {
       $(".hidden-group-buying-id").val($(this).attr('data-group-code'))
       $('#referModal').modal('show')
       _validator.resetForm()
-      $('.refresh-friend-btn').prev().attr('src', '/group-buying/captcha/generate' + '?' + Math.random())
+      $('.refresh-friend-btn').prev().attr('src', '/live-market/captcha/generate' + '?' + Math.random())
     })
     var errorClass = 'form-group--invalid'
     $("#referForm").submit(function (e) {
@@ -75,7 +75,7 @@ var referApply = (function () {
 
           },
           error: function (response) {
-            $('#refreshCaptchaId').prev().attr('src', '/group-buying/captcha/generate?'+Date.now())
+            $('#refreshCaptchaId').prev().attr('src', '/live-market/captcha/generate?'+Date.now())
             window.okchem.showError(response.responseJSON.errorMsg)
 
           },

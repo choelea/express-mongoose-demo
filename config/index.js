@@ -10,6 +10,7 @@ const env = {
   pre,
   prd,
 }
+
 // TODO: ensure the NODE_ENV must equal to short name defined above
 const activeEnv = env[process.env.NODE_ENV || 'local']
 const config = {

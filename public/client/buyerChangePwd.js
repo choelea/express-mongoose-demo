@@ -10,7 +10,7 @@ var buyerChangePwdForm = (function () {
       },
       submitHandler: function (form) {
         $.ajax({
-          url: '/group-buying/change-password',
+          url: '/live-market/change-password',
           type: 'PUT',
           contentType: 'application/json',
           data: JSON.stringify($(form).serializeFormJSON()),

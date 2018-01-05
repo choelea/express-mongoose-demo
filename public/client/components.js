@@ -5,7 +5,7 @@ $(document).ready(function () {
   })
   // File Upload
   $('#fileupload').fileupload({
-    url: '/group-buying/components',
+    url: '/live-market/components',
     dataType: 'json',
     done: function () {
 

@@ -48,13 +48,13 @@
           },
           submitHandler: function (form) {
             $.ajax({
-              url: '/group-buying/reset-password',
+              url: '/live-market/reset-password',
               type: 'POST',
               contentType: 'application/json',
               data: JSON.stringify($(form).serializeFormJSON()),
               success: function (json) {
                 if (json.success) {
-                  location.href='/group-buying/login'
+                  location.href='/live-market/login'
                 } else {
                   okchem.showError($.i18nMs.resetPwd[json.msgCode] || $.i18nMs.resetPwd.defaultErr)
                 }

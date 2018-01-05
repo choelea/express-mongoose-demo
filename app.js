@@ -34,8 +34,7 @@ app.use(accessLogger)
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
-app.use('/', route)
-// app.use(respond)  // Actually, don't need to use this. Just res.json in the controller js file
+app.use('/live-market', route)
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

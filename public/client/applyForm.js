@@ -69,7 +69,7 @@ var appDetail =(function(){
       headers: {
         "Content-Type":"application/json",
       },
-      url: '/group-buying/apply-form/email',
+      url: '/live-market/apply-form/email',
       type: 'GET',
       success: function(response) {
         var userInfo=response.datas.data
@@ -126,7 +126,7 @@ var appForm =(function(){
     if(source==="1"){
       if(0>=quantity||quantity>=appDetail.messageDate[productCode].moq){
         _addDateError($("#applyQuantity"),window.okchemI18_apply_quantityMoreNumber)
-        $('#refreshCaptchaId').prev().attr('src','/group-buying/captcha/generate?'+Date.now())
+        $('#refreshCaptchaId').prev().attr('src','/live-market/captcha/generate?'+Date.now())
         _hasDateError = true
       }else {
         _hasDateError = false
@@ -134,7 +134,7 @@ var appForm =(function(){
     }else if(source==="2"){
       if(quantity<appDetail.messageDate[productCode].moq){
         _addDateError($("#applyQuantity"),window.okchemI18_apply_quantityLessNumber)
-        $('#refreshCaptchaId').prev().attr('src','/group-buying/captcha/generate?'+Date.now())
+        $('#refreshCaptchaId').prev().attr('src','/live-market/captcha/generate?'+Date.now())
         _hasDateError = true
       }else {
         _hasDateError = false
@@ -142,7 +142,7 @@ var appForm =(function(){
     }else{
       if(quantity<appDetail.messageDate[productCode].moq){
         _addDateError($("#applyQuantity"),window.okchemI18_apply_quantityLessNumber)
-        $('#refreshCaptchaId').prev().attr('src','/group-buying/captcha/generate?'+Date.now())
+        $('#refreshCaptchaId').prev().attr('src','/live-market/captcha/generate?'+Date.now())
         _hasDateError = true
       }else {
         _hasDateError = false
@@ -161,7 +161,7 @@ var appForm =(function(){
   }
   var init = function(){
     $('#refreshCaptchaId').bind('click',function () {
-      $('#refreshCaptchaId').prev().attr('src','/group-buying/captcha/generate?'+Date.now())
+      $('#refreshCaptchaId').prev().attr('src','/live-market/captcha/generate?'+Date.now())
     })
     var errorClass = 'form-group--invalid'
     $("#group-apply-form").submit(function(e) {
@@ -267,16 +267,16 @@ var appForm =(function(){
             headers: {
               "Content-Type":"application/json",
             },
-            url: '/group-buying/apply-form',
+            url: '/live-market/apply-form',
             type: 'POST',
             data: JSON.stringify(data),
             success: function(response) {
               if(response.datas.success){
-                window.location.href='/group-buying/apply-form/success?gcode='+response.datas.data
+                window.location.href='/live-market/apply-form/success?gcode='+response.datas.data
               }
             },
             error: function (response) {
-              $('#refreshCaptchaId').prev().attr('src','/group-buying/captcha/generate?'+Date.now())
+              $('#refreshCaptchaId').prev().attr('src','/live-market/captcha/generate?'+Date.now())
               window.okchem.showError(response.responseJSON.errorMsg)
 
             },

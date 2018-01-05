@@ -11,7 +11,7 @@
             <hr>
 
             <form id="signupForm"
-                  action="/group-buying/signup"
+                  action="/live-market/signup"
                   method="post">
 
               <div id="signupErrorDiv" class="alert alert-danger fade in" style="display: none">
@@ -36,7 +36,7 @@
                            maxlength="4">
                   </div>
                   <div class="col-xs-6">
-                    <img src="/group-buying/captcha/generate" height="34" alt="">
+                    <img src="/live-market/captcha/generate" height="34" alt="">
                     <i class="fa fa-repeat" id="refreshCaptchaId" style="font-size: 18px; margin-left: 12px; cursor: pointer;"></i>
                   </div>
                 </div>
@@ -60,7 +60,7 @@
             <hr>
 
             <form id="loginForm"
-                  action="/group-buying/login{{#if query.redirectTo}}?redirectTo={{query.redirectTo}}{{/if}}"
+                  action="/live-market/login{{#if query.redirectTo}}?redirectTo={{query.redirectTo}}{{/if}}"
                   method="post">
               {{#each loginErrors}}
                 <div class="alert alert-danger fade in">
@@ -72,7 +72,7 @@
                 {{#if notVerified}}
                   <div class="pull-right">
                     <a
-                      href="/group-buying/send-verify-email?userEmail={{userEmail}}">{{t
+                      href="/live-market/send-verify-email?userEmail={{userEmail}}">{{t
                       "login.sendVerificationEmail"}}</a>
                   </div>
                 {{/if}}
@@ -82,7 +82,7 @@
               </div>
               <div class="form-group">
                 <div class="pull-right">
-                  <a href="/group-buying/forgot-password">{{t "login.forgotPwd"}}</a>
+                  <a href="/live-market/forgot-password">{{t "login.forgotPwd"}}</a>
                 </div>
                 <label for="password2">*{{t "login.password"}}</label>
                 <input type="password" name="password" class="form-control" minlength="6" required id="password"
