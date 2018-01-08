@@ -1,38 +1,3 @@
-// main document ready function
-// pls put global setting here inside
-// 1. scroll up
-// 2. string.format
-$(function () {
-  // table responsive
-  $.fn.serializeFormJSON = function () {
-    var o = {}
-    var a = this.serializeArray()
-    $.each(a, function () {
-      if (o[this.name]) {
-        if (!o[this.name].push) {
-          o[this.name] = [o[this.name]]
-        }
-        o[this.name].push(this.value || '')
-      } else {
-        o[this.name] = this.value || ''
-      }
-    })
-    return o
-  }
-
-  if (!String.prototype.format) {
-    String.prototype.format = function() {
-      var args = arguments
-      return this.replace(/{(\d+)}/g, function(match, number) {
-        return typeof args[number] != 'undefined'
-          ? args[number]
-          : match
-
-      })
-    }
-  }
-})
-
 toastr.options = {
   "closeButton": false,
   "debug": false,
@@ -257,3 +222,57 @@ window.okchem = (function () {
     dateEarlierThan: dateEarlierThan,
   }
 })()
+
+// main document ready function
+// pls put global setting here inside
+// 1. scroll up
+// 2. string.format
+$(function () {
+  $.ajaxSetup({
+    error: function (jqXHR) {
+      if (jqXHR.status == 404) {
+        // Do nothing, this should not happens
+      } else {
+        console.log(jqXHR.responseJSON.code)
+        okchem.showError($.i18nMs[jqXHR.responseJSON.code])
+      }
+    },
+    statusCode: {
+      401: function () {
+        if (location.pathname.startsWith('/instant-quote/supplier')) {
+          location.href = location.href // Reload the page for supplier
+        } else {
+          location.href = '/instant-quote/login?redirectTo=' + location.href
+        }
+      },
+    },
+  })
+  // table responsive
+  $.fn.serializeFormJSON = function () {
+    var o = {}
+    var a = this.serializeArray()
+    $.each(a, function () {
+      if (o[this.name]) {
+        if (!o[this.name].push) {
+          o[this.name] = [o[this.name]]
+        }
+        o[this.name].push(this.value || '')
+      } else {
+        o[this.name] = this.value || ''
+      }
+    })
+    return o
+  }
+
+  if (!String.prototype.format) {
+    String.prototype.format = function() {
+      var args = arguments
+      return this.replace(/{(\d+)}/g, function(match, number) {
+        return typeof args[number] != 'undefined'
+          ? args[number]
+          : match
+
+      })
+    }
+  }
+})

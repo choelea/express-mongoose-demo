@@ -33,7 +33,7 @@ UserSchema
 /**
  * Validations
  */
-UserSchema.path('name').validate(name => name.length, 'Name cannot be blank')
+UserSchema.path('email').validate(email => email.length, 'email cannot be blank')
 
 UserSchema.path('email').validate(function checkEmail(email, fn) {
   const User = mongoose.model('User')
@@ -72,7 +72,9 @@ UserSchema.methods = {
    * @api public
    */
 
-  authenticate: plainText => this.encryptPassword(plainText) === this.hashedPassword,
+  authenticate: function authentication(plainText) {
+    return this.encryptPassword(plainText) === this.hashedPassword
+  },
 
   /**
    * Make salt
@@ -117,9 +119,11 @@ UserSchema.statics = {
    * @api private
    */
 
-  load: (options, cb) => this.findOne(options.criteria)
-    .select(options.select || 'name username')
-    .exec(cb),
+  load: function load(options, cb) {
+    this.findOne(options.criteria)
+      .select(options.select || 'name username')
+      .exec(cb)
+  },
   loadByEmail: function loadByEmail(email) {
     return this.findOne({ email }).exec()
   },

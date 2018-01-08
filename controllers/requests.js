@@ -1,10 +1,5 @@
 const { wrap: async } = require('co')
 const mongoose = require('mongoose')
-const logger = require('../logger')
-const { err } = require('../utils')
-const only = require('only')
-
-const { assign } = Object
 const Request = mongoose.model('Request')
 /* GET users listing. */
 

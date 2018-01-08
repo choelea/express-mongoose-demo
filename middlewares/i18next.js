@@ -1,3 +1,6 @@
+/**
+ * To use this express middleware; just import it in you main app js and use it 'use(i18next)' before router.
+ */
 const i18next = require('i18next')
 const i18nextMiddleware = require('i18next-express-middleware')
 const Backend = require('i18next-node-fs-backend')

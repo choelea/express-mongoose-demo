@@ -11,7 +11,7 @@
             <hr>
 
             <form id="signupForm"
-                  action="/live-market/signup"
+                  action="/live-market/auth/signup"
                   method="post">
 
               <div id="signupErrorDiv" class="alert alert-danger fade in" style="display: none">
@@ -21,14 +21,14 @@
                   <a id="sendVerficationLink1" href="">{{t "login.sendVerificationEmail"}}</a>
                 </div>
                 <label for="email">*{{t "login.email"}}</label>
-                <input type="email" class="form-control" maxlength="50" name="username" id="username" required>
+                <input type="email" class="form-control" maxlength="50" name="email" required>
               </div>
               <div class="form-group">
                 <label for="password">*{{t "login.password"}}</label>
-                <input type="password" class="form-control" minlength="6" required name="password" id="password"
+                <input type="password" class="form-control" minlength="6" required name="password"
                        maxlength="12">
               </div>
-              <div class="form-group">
+              {{!-- <div class="form-group">
                 <label for="captcha">*{{t 'groupon.codeShow'}}</label>
                 <div class="row">
                   <div class="col-xs-6">
@@ -36,12 +36,11 @@
                            maxlength="4">
                   </div>
                   <div class="col-xs-6">
-                    <img src="/live-market/captcha/generate" height="34" alt="">
+                    <img src="/live-market/auth/captcha" height="34" alt="">
                     <i class="fa fa-repeat" id="refreshCaptchaId" style="font-size: 18px; margin-left: 12px; cursor: pointer;"></i>
                   </div>
                 </div>
-
-              </div>
+              </div> --}}
               <div class="text-center">
                 <button type="submit" id="btnSignup" class="btn btn-primary"><i class="fa fa-user-md"></i> {{t
                   "login.register"}}</button>
@@ -60,7 +59,7 @@
             <hr>
 
             <form id="loginForm"
-                  action="/live-market/login{{#if query.redirectTo}}?redirectTo={{query.redirectTo}}{{/if}}"
+                  action="/live-market/auth/signin{{#if query.redirectTo}}?redirectTo={{query.redirectTo}}{{/if}}"
                   method="post">
               {{#each loginErrors}}
                 <div class="alert alert-danger fade in">
@@ -77,7 +76,7 @@
                   </div>
                 {{/if}}
                 <label for="username2">*{{t "login.email"}}</label>
-                <input type="email" class="form-control" name="username" maxlength="50" required id="username"
+                <input type="email" class="form-control" name="email" maxlength="50" required id="username"
                        value="{{userEmail}}">
               </div>
               <div class="form-group">

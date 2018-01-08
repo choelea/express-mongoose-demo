@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 
 const Schama = mongoose.Schema
 
-const minlength = [3, 'The value of `{PATH}` (`{VALUE}`) is shorter than the minimum allowed length ({MINLENGTH}).'];
+const minlength = [3, 'The value of `{PATH}` (`{VALUE}`) is shorter than the minimum allowed length ({MINLENGTH}).']
 
 const ProductSchema = new Schama({
   code: { type: String, required: true, minlength, index: true, unique: true, trim: true, lowercase: true },

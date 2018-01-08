@@ -1,3 +1,5 @@
+/* eslint-disable no-param-reassign */
+
 const { wrap: async } = require('co')
 const mongoose = require('mongoose')
 const logger = require('../logger')

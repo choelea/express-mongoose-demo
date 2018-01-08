@@ -12,12 +12,11 @@ const env = {
 }
 
 // TODO: ensure the NODE_ENV must equal to short name defined above
-const activeEnv = env[process.env.NODE_ENV || 'local']
+const envConfig = env[process.env.NODE_ENV || 'local']
 const config = {
-  mongodbUrl:activeEnv.mongodbUrl || "mongodb://localhost/emmab",
+  mongodbUrl: envConfig.mongodbUrl || 'mongodb://localhost/emmab',
   captchaExpireTime: 180000,
-  admindomain: '/admin',
   sessionAge: 3600000,
 }
 
-module.exports = config
+module.exports = Object.assign(envConfig, config)

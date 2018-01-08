@@ -1,13 +1,14 @@
 const express = require('express')
-const config = require('./config')
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
+const path = require('path')
+const favicon = require('serve-favicon')
+const flash = require('connect-flash')
+const config = require('./config')
 const i18next = require('./middlewares/i18next')
 require('./models') // Bootstrap models, must be required before routers
 const route = require('./route')
 const logger = require('./logger')
-const path = require('path')
-const favicon = require('serve-favicon')
 const accessLogger = require('./middlewares/accessLogger')
 
 // mongoose starting, autoIndex is something tricky, pls try to learn more from below link.
@@ -30,6 +31,9 @@ app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
 require('./middlewares/static')(app)
 app.use(i18next)
 require('./middlewares/hbs')(app)
+app.use(flash())
+require('./middlewares/express-session')(app) // session, passport
+
 app.use(accessLogger)
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
@@ -48,7 +52,7 @@ app.use((req, res, next) => {
 /**
  * error-handling functions MUST have four arguments, otherwise it won't work.
  */
-app.use((err, req, res) => {
+app.use((err, req, res, next) => {
   if (err) { logger.error(err) }
   res.status(err.status || 500)
   res.json({ code: err.code || 500, message: err.message })
