@@ -8,6 +8,7 @@ const config = require('../config')
 const mongoose = require('mongoose')
 const User = mongoose.model('User')
 const LocalStrategy = require('passport-local').Strategy
+const only = require('only')
 
 const local = new LocalStrategy({
   usernameField: 'email',
@@ -16,7 +17,7 @@ const local = new LocalStrategy({
   (email, password, done) => {
     const options = {
       criteria: { email },
-      select: 'name username email hashed_password salt',
+      select: 'name email hashedPassword salt',
     }
     User.load(options, (err, user) => {
       if (err) return done(err)
@@ -24,17 +25,17 @@ const local = new LocalStrategy({
         return done(null, false, { message: 'Unknown user' })
       }
       if (!user.authenticate(password)) {
-        return done(null, false, { message: 'Invalid password' })
+        return done(null, false, { message: 'Invalid Password' })
       }
-      return done(null, user)
+      return done(null, only(user, 'id email'))
     })
   }
 )
 
 module.exports = function (app) {
-  // serialize session
-  passport.serializeUser((user, cb) => cb(null, user.id))
-  passport.deserializeUser((id, cb) => User.load({ criteria: { _id: id } }, cb))
+  // serialize session, if serialize the whole user model
+  passport.serializeUser((user, done) => done(null, user))
+  passport.deserializeUser((user, done) => done(null, user))
 
   // use these strategies
   passport.use('local', local)

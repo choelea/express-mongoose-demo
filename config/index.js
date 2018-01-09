@@ -17,6 +17,15 @@ const config = {
   mongodbUrl: envConfig.mongodbUrl || 'mongodb://localhost/emmab',
   captchaExpireTime: 180000,
   sessionAge: 3600000,
+  mailConf: {
+    pool: true,
+    host: 'smtp.office365.com',
+    port: 587,
+    secure: false,
+    requireTLS: true,
+    auth: { user: 'notification@okchem.com', pass: 'OKchem201712' },
+    from: 'notification@okchem.com',
+  },
 }
 
-module.exports = Object.assign(envConfig, config)
+module.exports = Object.assign(config, envConfig)

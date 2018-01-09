@@ -239,10 +239,10 @@ $(function () {
     },
     statusCode: {
       401: function () {
-        if (location.pathname.startsWith('/instant-quote/supplier')) {
+        if (location.pathname.startsWith('/live-market/supplier')) {
           location.href = location.href // Reload the page for supplier
         } else {
-          location.href = '/instant-quote/login?redirectTo=' + location.href
+          location.href = '/live-market/signin?redirectTo=' + location.href
         }
       },
     },

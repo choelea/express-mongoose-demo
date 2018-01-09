@@ -121,7 +121,7 @@ UserSchema.statics = {
 
   load: function load(options, cb) {
     this.findOne(options.criteria)
-      .select(options.select || 'name username')
+      .select(options.select || 'name username ')
       .exec(cb)
   },
   loadByEmail: function loadByEmail(email) {

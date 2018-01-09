@@ -14,13 +14,22 @@ router.get('/', (req, res) => {
 
 router.get('/auth/signin', users.loginPage)
 router.post('/auth/signin', passport.authenticate('local', {
-  successRedirect: '/',
+  successRedirect: '/live-market',
   failureRedirect: '/live-market/auth/signin',
   failureFlash: true,
 }), users.postSignin)
 router.post('/auth/signup', users.createOne)
+router.get('/auth/signup/success', users.signupSuccess)
 router.get('/auth/captcha', captcha.get)
+router.get('/auth/forgotpassword', (req, res) => { res.render('auth/forgotPassword') })
+router.post('/auth/forgotpassword', users.sendPwdResetEmail)
 // router.get('/live-market/auth/signup/success',)
+
+router.get('/u/me', (req, res) => { res.json(req.user) })
+router.get('/u/logout', (req, res) => {
+  req.logout()
+  res.redirect('/live-market')
+})
 
 router.post('/users', users.createOne)
 router.post('/requests', requests.createOne)

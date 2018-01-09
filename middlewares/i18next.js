@@ -23,10 +23,13 @@ const subdomain = {
 const lngDetector = new i18nextMiddleware.LanguageDetector()
 lngDetector.addDetector(subdomain)
 
-
+// For now, just use cookie which comes from the setting of user's browser by default
+// const options = {
+//   order: ['cookie', 'subdomain', 'header'],
+//   lookupCookie: 'i18next',
+// }
 const options = {
-  order: ['cookie', 'subdomain', 'header'],
-  lookupCookie: 'i18next',
+  order: ['cookie'],
 }
 lngDetector.init(options)
 

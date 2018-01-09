@@ -2,14 +2,15 @@ const { wrap: async } = require('co')
 const mongoose = require('mongoose')
 const { err } = require('../utils')
 const User = mongoose.model('User')
+const sendEmail = require('../utils/emailService')
 /* eslint-disable no-param-reassign */
 exports.loginPage = function loginPage(req, res) {
   req.session.redirectTo = req.query.redirectTo
-  console.log(req.flash('error'))
+  // console.log(req.flash('error'))
   res.render('auth/login')
 }
 exports.signupSuccess = function signupSuccess(req, res) {
-  res.render('login')
+  res.render('auth/signup-success', { email: req.query.email })
 }
 exports.createOne = async(function* createOne(req, res, next) {
   try {
@@ -31,4 +32,10 @@ exports.postSignin = function postSignin(req, res) {
   const redirectTo = req.session.redirectTo ? req.session.redirectTo : '/live-market'
   delete req.session.redirectTo
   res.redirect(redirectTo)
+}
+
+
+exports.sendPwdResetEmail = function sendPwdResetEmail(req, res) {
+  sendEmail({ to: req.body.userEmail, subject: 'Forgot password', text: 'test.......' })
+  res.json({ success: true })
 }
