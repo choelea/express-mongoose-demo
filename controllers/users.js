@@ -36,6 +36,6 @@ exports.postSignin = function postSignin(req, res) {
 
 
 exports.sendPwdResetEmail = function sendPwdResetEmail(req, res) {
-  sendEmail({ to: req.body.userEmail, subject: 'Forgot password', text: 'test.......' })
+  sendEmail({ to: req.body.userEmail, subject: 'Forgot password', template: 'findpwd' }, { email: 'joe.li@okchem.com', url: 'http://www.baidu.com' })
   res.json({ success: true })
 }

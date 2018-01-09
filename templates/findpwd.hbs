@@ -1,0 +1,162 @@
+﻿<!DOCTYPE html><html lang="en"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>page1</title>
+  <style>
+    .content {
+      border: 1px solid #e6e6e6;
+      max-width: 650px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      text-align: center;
+      padding-top: 25px;
+      padding-bottom: 25px;
+      border-bottom: 1px solid #e6e6e6;
+    }
+
+    .box1 {
+      border-bottom: 1px solid #ccc;
+      margin: 40px 30px 20px 30px;
+      padding-left: 10px;
+      padding-right: 10px;
+      text-align: center;
+    }
+
+    .box1 p {
+      font-size: 14px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .box1 .button {
+      width: 200px;
+      height: 34px;
+      font-size: 14px;
+      line-height: 34px;
+      color: #184a80;
+      background: inherit;
+      background-color: #fff;
+      border: 1px solid #184a80;
+      border-radius: 5px;
+      margin: 40px auto;
+      cursor: pointer;
+    }
+
+    .box2 {
+      margin: 0 30px;
+    }
+
+    .box2 .description {
+      text-align: center;
+      margin-bottom: 30px;
+      padding: 0 30px 20px;
+      border-bottom: 1px solid #ccc;
+      color: #555;
+      font-size: 14px;
+
+    }
+
+    .box2 .description span {
+      font-weight: bold;
+      color: #333;
+    }
+
+    .box2 .title {
+      text-align: center;
+      font-weight: bold;
+      font-size: 24px;
+      color: #333;
+    }
+
+    .box2 .list {
+      margin: 30px 0;
+      display: inline-block;
+      width:100%;
+    }
+
+    .box2 .list .list-content {
+      width: 50%;
+      float: left;
+      margin-bottom: 30px;
+    }
+
+    .box2 .list .list-content img {
+      float: left;
+    }
+
+    .box2 .list .list-content .text {
+      width:76%;
+      margin-left: 5px;
+      float: left;
+    }
+
+    .box2 .list .list-content h4 {
+      font-size: 18px;
+      color: #333;
+      margin-top:0;
+      margin-bottom: 5px;
+    }
+
+    .box2 .list .list-content p {
+      font-size: 14px;
+      color: #555;
+      margin-top:0;
+      margin-bottom: 0;
+    }
+  </style>
+
+
+</head>
+<body>
+<div class="content">
+  <div class="logo">
+    <img src="https://s3-us-west-2.amazonaws.com/chicago-o/emailt/iq-logo.png" alt="logo InstantQuote">
+  </div>
+  <div class="box1">
+    <p>We received a request to reset your password for your OKCHEM account:</p>
+    <a href="#" style="color:#333333;text-decoration:none">{{email}}</a>
+    <p>To reset your password, click on the link below ( or copy and paste the URL into your browser):</p>
+    <a href="{{url}}" style="color:#365c8a;">http://www.okchem.com/instant-quote/userpwdreset?token=BHUMq09ZOTVbdFfvxYocxAdsmxOPWPWWjbUdKFwo</a>
+  </div>
+  <div class="box2">
+    <div class="description">
+      <span>InstantQuote</span> is an online quotation tool designed to optimize the purchasing workflow and bring a
+      brand new inquiring experience.
+    </div>
+    <div class="title">
+      we support
+    </div>
+    <div class="list">
+      <div class="list-content">
+        <img src="https://s3-us-west-2.amazonaws.com/chicago-o/emailt/iq-clock.png" alt="Real Time Quotes">
+        <div class="text">
+          <h4>Real Time Quotes:</h4>
+          <p>Get the latest CIF/FOB quotes
+            with your port or payment
+            term in a snap. </p>
+        </div>
+      </div>
+      <div class="list-content">
+        <img src="https://s3-us-west-2.amazonaws.com/chicago-o/emailt/iq-notes.png" alt="Real Time Quotes">
+        <div class="text">
+          <h4>Quotation Management:</h4>
+          <p>Compare and manage multiple
+            quotes from different suppliers
+            at one place.</p>
+        </div>
+      </div>
+      <div class="list-content">
+        <img src="https://s3-us-west-2.amazonaws.com/chicago-o/emailt/iq-mail.png" alt="Real Time Quotes">
+        <div class="text">
+          <h4>Price Subscription:</h4>
+          <p>Get subscribed price change
+            notices and make wise
+            procurement plans.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

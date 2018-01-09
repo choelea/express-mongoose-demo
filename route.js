@@ -3,6 +3,7 @@ const products = require('./controllers/products')
 const users = require('./controllers/users')
 const requests = require('./controllers/requests')
 const captcha = require('./controllers/captcha')
+const emailTemplate = require('./controllers/emailTemplates')
 const passport = require('passport')
 /* eslint-disable new-cap */
 const router = express.Router()
@@ -22,8 +23,8 @@ router.post('/auth/signup', users.createOne)
 router.get('/auth/signup/success', users.signupSuccess)
 router.get('/auth/captcha', captcha.get)
 router.get('/auth/forgotpassword', (req, res) => { res.render('auth/forgotPassword') })
+router.get('/auth/forgotpassword/success', (req, res) => { res.render('auth/forgotPwdEmailSent') })
 router.post('/auth/forgotpassword', users.sendPwdResetEmail)
-// router.get('/live-market/auth/signup/success',)
 
 router.get('/u/me', (req, res) => { res.json(req.user) })
 router.get('/u/logout', (req, res) => {
@@ -31,6 +32,8 @@ router.get('/u/logout', (req, res) => {
   res.redirect('/live-market')
 })
 
+// router.get('/admin/template/:code',)
+router.post('/admin/email-templates', emailTemplate.createOne)
 router.post('/users', users.createOne)
 router.post('/requests', requests.createOne)
 
